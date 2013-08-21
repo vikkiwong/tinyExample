@@ -1,5 +1,8 @@
 TinyExample::Application.routes.draw do
 
+  resources :users
+  resources :sessions
+
   get "welcome/index"
 
   root :to => 'welcome#index'

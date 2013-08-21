@@ -1,0 +1,17 @@
+<% content_for :head do %>
+  添加用户 | TinyExample
+<% end %>
+
+<h2 class="header">用户信息</h2>
+
+<dl id="user_info" class="dl-horizontal">
+  <dt>ID</dt>
+  <dd><%= @user.id %></dd>
+  <dt>姓名</dt>
+  <dd><%= @user.name %></dd>
+  <dt>邮箱</dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
+<%= link_to '修改', edit_user_path(@user) %> |
+<%= link_to '返回', users_path %>

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+ h2.header { margin-bottom: 30px;}
+.dl-horizontal#user_info dt{ width: 30px; }
+.dl-horizontal#user_info dd{ margin-left: 50px; }

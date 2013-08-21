@@ -1,0 +1,30 @@
+<% content_for :head do %>
+  用户列表 | TinyExample
+<% end %>
+
+<h2 class="header">用户列表</h2>
+
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>姓名</th>
+    <th>邮箱</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.id, user_path(user) %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td style="text-align:right;">
+      <%= link_to '修改', edit_user_path(user), :class=> "btn btn-info" %>
+      <%= link_to '删除', user, method: :delete, data: { confirm: '确定删除？' }, :class=> "btn btn-danger"%>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '添加用户', new_user_path %>

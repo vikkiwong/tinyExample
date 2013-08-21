@@ -1,0 +1,10 @@
+<% content_for :head do %>
+  修改用户 | TinyExample
+<% end %>
+
+<h2 class="header">修改用户</h2>
+
+<%= render 'form' %>
+
+<%= link_to '详情', @user %> |
+<%= link_to '返回', users_path %>
