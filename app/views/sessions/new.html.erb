@@ -1,0 +1,25 @@
+<div id="content" class="content">
+  <div class="login">
+    <div clss="cap-body">
+      <%= form_tag(sessions_path,  :class => "login_form" ) do %>
+        <div class="branding">
+          <div class="login_logo">TinyExample</div>
+        </div>
+        <div class="pannellogin">
+          <%- if flash[:notice].present? -%>
+            <div class="warning"><%=raw flash[:notice] %></div>
+          <%- end -%>
+          <div>
+            <input  class="name" id="name" name="email" placeholder="用户名" tabindex="1" type="text" />
+            <input  class="passwd" id="password" name="password" placeholder="密码" tabindex="2" type="password" />
+          </div>
+          </div>
+          <input class="btn btn-primary " type="submit" name="login" value="登陆" tabindex="5" style="margin-left: 384px;font-size: 20px;" />
+        </div>
+      <% end %>
+      <div class="container" style="background-color: whiteSmoke;width: 545px;height: 47px;margin-left: 0;">
+        <p align="center" style="margin-top: 14px;">Powered by 基因团队 © 2012</p>
+      </div>
+    </div>
+  </div>
+</div>

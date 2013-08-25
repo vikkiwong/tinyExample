@@ -1,0 +1,39 @@
+.login{
+	margin: 220px auto;
+	width: 542px;
+}
+
+.login_form{
+	width: 542px;
+	height: 256px;
+	border: 1px solid #CCC;
+	padding-top: 46px;
+	padding-bottom: 8px;
+}
+
+.login_logo{
+	font-size: 26px;
+	margin-bottom: 28px;
+	text-align: center;
+}
+
+.pannellogin input.name,.pannellogin input.passwd {
+	height: 32px;
+	width: 370px;
+	font-size: 22px;
+	margin-left: 79px;
+}
+
+.name,.passwd,.role {
+  font-size: 20px;
+}
+
+.warning{
+	color: #777;
+	font-size: 16px;
+	margin-left: 0px;
+	background-color: #FFFFE0;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+}
