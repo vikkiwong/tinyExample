@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   # ping.wang
   def create
     if Rails.env == "production"
-      @user = User.check_user(params[:email],params[:password])
+      @user = Customer.check_user(params[:email],params[:password])
     else
       @user = check_user(params[:email],params[:password])
     end
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
   # ping.wang
   def check_user(email, password)
     return nil unless email.present?
-    user = User.find_by_email(email)
+    user = Customer.find_by_email(email)
     user.present? ? user : nil
   end
 

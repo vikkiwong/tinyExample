@@ -3,6 +3,13 @@ TinyExample::Application.routes.draw do
   resources :users
   resources :sessions
 
+  namespace :auction do
+    resources :customers do
+
+    end
+  end
+
+
   get "welcome/index"
 
   match "/login" => "sessions#new"
