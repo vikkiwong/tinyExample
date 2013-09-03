@@ -1,0 +1,37 @@
+<% content_for :head do %>
+   订单用户信息
+<% end %>
+
+<div>
+
+  <header>
+    <h3>2013年成功订单的用户信息</h3>
+  </header>
+
+  <div>
+    <% if @customers.present? %>
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th>用户ID</th>
+        <th>姓名</th>
+        <th>常用收货省</th>
+        <th>常用收货市</th>
+        <th>常用收货手机号</th>
+        <th>注册手机号</th>
+      </tr>
+      <% @customers.each do|customer| %>
+         <tr>
+           <td><%= customer.id %></td>
+           <td><%= customer.name %></td>
+           <td><%= customer.hots_contact_province %></td>
+           <td><%= customer.hots_contact_city %></td>
+           <td><%= customer.hots_contact_mobile %></td>
+           <td><%= customer.mobile %></td>
+         </tr>
+      <% end %>
+    </table>
+    <% else %>
+      <p class="muted">没有相关用户！</p>
+    <% end %>
+  </div>
+</div>
