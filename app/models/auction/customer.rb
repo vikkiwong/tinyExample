@@ -2,25 +2,10 @@ class Auction::Customer < IhaveuRecord
   self.table_name = 'auction_users'
 
   #hots_contact_province 常用收货省
-  #
-  #wangyang.shen
-  def hots_contact_province
-    Auction::Contact.hots_contact_info(self.id)["hots_contact_province"]
-  end
-
   #hots_contact_city 常用收货市
-  #
-  #wangyang.shen
-  def hots_contact_city
-    Auction::Contact.hots_contact_info(self.id)["hots_contact_city"]
-  end
-
   #hots_contact_mobile 常用收货手机号
-  #
-  #wangyang.shen
-  def hots_contact_mobile
-    Auction::Contact.hots_contact_info(self.id)["hots_contact_mobile"]
-  end
+  #虚拟属性
+  attr_accessor :hots_contact_province, :hots_contact_city ,:hots_contact_mobile
 
   #mobile 注册手机号
   #
