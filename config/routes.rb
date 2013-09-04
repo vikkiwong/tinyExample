@@ -4,7 +4,7 @@ TinyExample::Application.routes.draw do
   resources :sessions
 
   namespace :auction do
-    resources :customers do
+    resources :users do
 
     end
   end
@@ -15,7 +15,7 @@ TinyExample::Application.routes.draw do
   match "/login" => "sessions#new"
   match "/logout" => "sessions#destroy" 
 
-  root :to => 'auction/customers#index'
+  root :to => 'auction/users#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

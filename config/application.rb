@@ -60,3 +60,8 @@ module TinyExample
     config.assets.version = '1.0'
   end
 end
+
+WillPaginate.per_page = 20
+SITE_SETTINGS = YAML.load_file(Rails.root.join("config", "system_settings.yml"))
+SITE_DOMAIN = SITE_SETTINGS["site_domain"]
+SITE_DOMAIN_CMS = SITE_SETTINGS["site_domain_cms"]
