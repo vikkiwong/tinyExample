@@ -3,22 +3,24 @@ class Auction::Trade < IhaveuRecord
   self.table_name = 'auction_trades'
 
 
-  #搜索有过成功订单信息的用户
+  # 按条件统计某年有过成功订单的用户信息（id，name，最近成功订单id，最近成功订单日期）
   #
-  #wangyang.shen
+  # wangyang.shen 2013.09.05
   def self.find_success_trade_users(year)
     sql = <<-SQL
-      SELECT user_id , trade_id, trade_created_at
-      FROM  ( SELECT t.user_id as user_id, t.id as trade_id, t.created_at as trade_created_at
-      FROM auction_trades AS t
-      INNER JOIN auction_trades_updatings AS tu
-      ON tu.trade_id = t.id and tu.status='receive'
-      WHERE t.delivery_service is NOT NULL AND t.delivery_service!= ''
-      AND t.status in ('complete','receive') AND YEAR(t.created_at) = 2013
-	    ORDER BY t.id DESC ) AS c
+      SELECT user_id , au.name as user_name, trade_id, trade_created_at
+      FROM  (
+              SELECT t.user_id as user_id, t.id as trade_id, t.created_at as trade_created_at
+              FROM auction_trades AS t
+              INNER JOIN auction_trades_updatings AS tu
+              ON tu.trade_id = t.id and tu.status='receive'
+              WHERE t.delivery_service is NOT NULL AND t.delivery_service!= ''
+              AND t.status in ('complete','receive') AND YEAR(t.created_at) = #{year}
+              ORDER BY t.id DESC 
+            ) AS c
+      LEFT JOIN auction_users AS au ON au.id = c.user_id
       GROUP BY c.user_id
     SQL
-    IhaveuRecord.connection.execute(sql)
+    self.find_by_sql(sql)
   end
-
 end
