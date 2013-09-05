@@ -8,14 +8,15 @@ class Auction::Trade < IhaveuRecord
   #wangyang.shen
   def self.find_success_trade_users(year)
     sql = <<-SQL
-      SELECT t.user_id AS user_id, MAX(t.id) as lt_trade_id, MAX(t.created_at) AS lt_trade_date
+      SELECT user_id , trade_id, trade_created_at
+      FROM  ( SELECT t.user_id as user_id, t.id as trade_id, t.created_at as trade_created_at
       FROM auction_trades AS t
       INNER JOIN auction_trades_updatings AS tu
       ON tu.trade_id = t.id and tu.status='receive'
       WHERE t.delivery_service is NOT NULL AND t.delivery_service!= ''
-      AND t.status in ('complete','receive') AND YEAR(t.created_at) = #{year}
-      GROUP BY t.user_id
-      ORDER BY t.user_id DESC
+      AND t.status in ('complete','receive') AND YEAR(t.created_at) = 2013
+	    ORDER BY t.id DESC ) AS c
+      GROUP BY c.user_id
     SQL
     IhaveuRecord.connection.execute(sql)
   end
