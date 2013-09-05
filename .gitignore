@@ -8,9 +8,13 @@ capybara-*.html
 /log/*
 /tmp/*
 /db/*.sqlite3
+/db/schema.rb
 /public/system/*
+/config/*.yml
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
+Gemfile
+Gemfile.lock

@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container" style="width: 940px;">
 				<a class="brand" href="/">TinyExample</a>
@@ -20,7 +20,7 @@
                   <%- if session[:id].present? -%>
                       <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:name] %>
-                          <b class="caret"></b>
+                          <b class="caret" style="border-top-color: #555;border-bottom-color: #555;"></b>
                         </a>
                         <ul class="dropdown-menu" style="min-width: 120px;">
                           <li><a href="/users">用户列表</a></li>
@@ -51,7 +51,7 @@
   <div class="clear"></div>
   <footer class="footer">
     <div class="container" style="margin-top: 110px;">
-      <p align="center">Powered by 基因团队 © 2012</p>
+      <p align="center">Powered by 基因团队 © 2013</p>
     </div>
   </footer>
 </body>

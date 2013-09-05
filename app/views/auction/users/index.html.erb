@@ -15,14 +15,14 @@
         <th>用户ID</th>
         <th>姓名</th>
         <th>最近成功订单ID</th>
-        <th>最近成功订单时间</th>
+        <th>最近成功订单日期</th>
       </tr>
       <% @users.each do|user| %>
          <tr>
            <td><%= user.id %></td>
            <td><%= user.name %></td>
            <td><%= link_to user.lt_trade_id, "http://#{SITE_DOMAIN_CMS}/auction/manage/trades/#{user.lt_trade_id}", :target => "_blank" %></td>
-           <td><%= shown_time(user.lt_trade_date) %></td>
+           <td><%= shown_date(user.lt_trade_date) %></td>
          </tr>
       <% end %>
     </table>
