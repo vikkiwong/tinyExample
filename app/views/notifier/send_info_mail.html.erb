@@ -1,20 +1,70 @@
+<div style="font-size: large;">
 <p>您好，</p>
-<p>以下是2013年有过成功订单的用户信息(只显示前20名用户):</p>
+<p>以下是2013年有过成功订单的用户信息:</p>
 <div>
-  <table border=1 style="font-size: large;width: 60%;text-align: center;">
-    <tr style="height: 50px;">
-      <th>用户ID</th>
-      <th>姓名</th>
-      <th>最近成功订单ID</th>
-      <th>最近成功订单日期</th>
+</div>
+  <table style="font-size: large;width: 60%;">
+    <tr style="height: 40px;">
+      <th style="padding: 8px;
+              text-align: left;
+              vertical-align: inherit;
+              border-top: 1px solid #DDD;
+              border-left: 1px solid #DDD;">用户ID</th>
+      <th style="padding: 8px;
+              text-align: left;
+              vertical-align: inherit;
+              border-top: 1px solid #DDD;
+              border-left: 1px solid #DDD;">姓名</th>
+      <th style="padding: 8px;
+              text-align: left;
+              vertical-align: inherit;
+              border-top: 1px solid #DDD;
+              border-left: 1px solid #DDD;">最近成功订单ID</th>
+      <th style="padding: 8px;
+              text-align: center;
+              vertical-align: inherit;
+              border-top: 1px solid #DDD;
+              border-left: 1px solid #DDD;
+              border-right: 1px solid #DDD;">最近成功订单日期</th>
     </tr>
     <% @results.first(20).each do|result| %>
         <tr style="height: 30px;">
-          <td><%= result["user_id"] %></td>
-          <td><%= result["user_name"] %></td>
-          <td><%= link_to result["trade_id"], "http://#{SITE_DOMAIN_CMS}/auction/manage/trades/#{result['trade_id']}", :target => "_blank" %></td>
-          <td><%= result["trade_created_at"].strftime("%Y-%m-%d") %></td>
+          <td style="text-align: left;
+                  padding: 8px;
+                  line-height: 40px;
+                  vertical-align: inherit;
+                  border-top: 1px solid #DDD;
+                  border-left: 1px solid #DDD;"><%= result["user_id"] %></td>
+          <td style="text-align: left;
+                  padding: 8px;
+                  line-height: 40px;
+                  vertical-align: inherit;
+                  border-top: 1px solid #DDD;
+                  border-left: 1px solid #DDD;"><%= result["user_name"] %></td>
+          <td style="text-align: left;
+                  padding: 8px;
+                  line-height: 40px;
+                  vertical-align: inherit;
+                  border-top: 1px solid #DDD;
+                  border-left: 1px solid #DDD;"><%= link_to result["trade_id"], "http://#{SITE_DOMAIN_CMS}/auction/manage/trades/#{result['trade_id']}",:style => "text-decoration:none;", :target => "_blank" %></td>
+          <td style="text-align: center;
+                  padding: 8px;
+                  line-height: 40px;
+                  vertical-align: inherit;
+                  border-top: 1px solid #DDD;
+                  border-left: 1px solid #DDD;
+                  border-right: 1px solid #DDD;"><%= result["trade_created_at"].strftime("%Y-%m-%d") %></td>
         </tr>
     <% end %>
+    <tr>
+      <td colspan="4" style="vertical-align: top;
+              border-top: 1px solid #DDD;">
+      </td>
+    </tr>
   </table>
+  <% if @results.size > 20 %>
+      <p style="color: #999999;">只显示前20条记录</p>
+  <% end %>
+  <br/>
+  <a style="text-decoration:none" href="http://<%= SITE_DOMAIN %>/analysis/trade">点击这里, 查看详细信息！</a>
 </div>
