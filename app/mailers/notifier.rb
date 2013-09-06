@@ -16,14 +16,14 @@ class Notifier < ActionMailer::Base
   }
 
   #发送邮件
-  #:to 收件人
-  #:subject 邮件标题
-  #:cc 抄送
-  #:bcc 密送
-  def send_info_mail(users,results)
+  # :to 收件人
+  # :subject 邮件标题
+  # :cc 抄送
+  # :bcc 密送
+  # 邮件主体内容即 views/notifier/send_info_mail.html.erb
+  def send_info_mail(users, results)
     @results = results
     @mail_to = users.collect{|c| %Q("#{c.name}"<#{c.email}@ihaveu.net>)}
     mail :to => @mail_to , :subject => '2013年有过成功订单的用户信息'
   end
-
 end

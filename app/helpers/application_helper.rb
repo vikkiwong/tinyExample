@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # 转换时间显示格式
   def shown_time(cur_time)
     if cur_time.is_a?(Time)
       cur_time.strftime("%Y-%m-%d %H:%M")
@@ -7,6 +8,7 @@ module ApplicationHelper
     end
   end
 
+  # 转换时间显示格式
   def shown_date(cur_time)
     if cur_time.is_a?(Time)
       cur_time.strftime("%Y-%m-%d")
