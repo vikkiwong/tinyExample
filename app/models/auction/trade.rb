@@ -24,13 +24,19 @@ class Auction::Trade < IhaveuRecord
     self.find_by_sql(sql)
   end
 
+  #发送用户信息邮件方法
   def self.send_info_mail
     year = 2013
     results = self.find_success_trade_users(year)
-    users = User.all
-    users.each do|user|
-      Notifier.send_info_mail(user,results,year).deliver
-    end if users.present? && results.present?
+    #给所有人发送邮件
+    User.all.each do|user|
+      #出现错误抛出异常
+      begin
+        Notifier.send_info_mail(user,results).deliver
+      rescue Exception => e
+        puts e.message
+      end
+    end if User.all.present? && results.present?
   end
 
 end

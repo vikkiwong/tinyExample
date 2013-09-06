@@ -20,9 +20,9 @@ class Notifier < ActionMailer::Base
   #:subject 邮件标题
   #:cc 抄送
   #:bcc 密送
-  def send_info_mail(user,results,year)
-    @user, @results, @year = user, results, year
-    mail :to => @user.email , :subject => '系统测试邮件'
+  def send_info_mail(user,results)
+    @user, @results = user, results
+    mail :to => @user.email , :subject => '2013系统测试邮件'
   end
 
 end
