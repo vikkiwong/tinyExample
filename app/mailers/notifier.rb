@@ -23,7 +23,7 @@ class Notifier < ActionMailer::Base
   def send_info_mail(users,results)
     @results = results
     @mail_to = users.collect{|c| %Q("#{c.name}"<#{c.email}@ihaveu.net>)}
-    mail :to => @mail_to , :subject => '2013系统测试邮件'
+    mail :to => @mail_to , :subject => '2013年有过成功订单的用户信息'
   end
 
 end
