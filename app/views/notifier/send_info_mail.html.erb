@@ -1,0 +1,20 @@
+<p>您好，<%= @user.name %></p>
+<p>以下是<%= @year %>年有过成功订单的用户信息(只显示前20名用户):</p>
+<div>
+  <table border=1 style="font-size: large;width: 60%;text-align: center;">
+    <tr style="height: 50px;">
+      <th>用户ID</th>
+      <th>姓名</th>
+      <th>最近成功订单ID</th>
+      <th>最近成功订单日期</th>
+    </tr>
+    <% @results.first(20).each do|result| %>
+        <tr style="height: 30px;">
+          <td><%= result["user_id"] %></td>
+          <td><%= result["user_name"] %></td>
+          <td><%= link_to result["trade_id"], "http://#{SITE_DOMAIN_CMS}/auction/manage/trades/#{result['trade_id']}", :target => "_blank" %></td>
+          <td><%= result["trade_created_at"].strftime("%Y-%m-%d") %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

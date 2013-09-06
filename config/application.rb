@@ -62,6 +62,7 @@ module TinyExample
 end
 
 WillPaginate.per_page = 20
+SETTINGS = YAML::load(File.open("config/email_config.yml"))
 SITE_SETTINGS = YAML.load_file(Rails.root.join("config", "system_settings.yml"))
 SITE_DOMAIN = SITE_SETTINGS["site_domain"]
 SITE_DOMAIN_CMS = SITE_SETTINGS["site_domain_cms"]

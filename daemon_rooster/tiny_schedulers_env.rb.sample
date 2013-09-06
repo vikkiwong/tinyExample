@@ -1,0 +1,8 @@
+#rake路径
+RAKE_PATH = "/usr/local/rvm/gems/ruby-1.9.3-p286/bin/rake"
+#RAILS根目录
+RAILS_ROOT_PATH = "/opt/tiny_example"
+#RAILS_ENV　rake运动环境
+RAILS_ENV = "RAILS_ENV=production"
+RUBY_PATH = "/usr/local/rvm/rubies/ruby-1.9.3-p286/bin/ruby"
+RVM_USE = "rvm use ruby-1.9.3-p286"

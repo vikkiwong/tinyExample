@@ -1,0 +1,7 @@
+ name: "参考项目测试邮件"
+ email: edit@ihaveu.net
+ address: mail.ihaveu.net
+ port: 25
+ authentication: :login
+ domain: ihaveu.net
+ enable_starttls_auto: true

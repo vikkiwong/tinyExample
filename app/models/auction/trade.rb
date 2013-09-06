@@ -23,4 +23,14 @@ class Auction::Trade < IhaveuRecord
     SQL
     self.find_by_sql(sql)
   end
+
+  def self.send_info_mail
+    year = 2013
+    results = self.find_success_trade_users(year)
+    users = User.all
+    users.each do|user|
+      Notifier.send_info_mail(user,results,year).deliver
+    end if users.present? && results.present?
+  end
+
 end

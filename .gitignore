@@ -18,3 +18,4 @@ rerun.txt
 pickle-email-*.html
 Gemfile
 Gemfile.lock
+/daemon_rooster/tiny_schedulers_env.rb
