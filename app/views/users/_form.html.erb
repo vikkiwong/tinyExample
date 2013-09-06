@@ -14,11 +14,11 @@
 
   <div class="field">
     <%= f.label :姓名 %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name,:style => "width:214px;" %>
   </div>
   <div class="field">
     <%= f.label :邮箱 %>
-    <%= f.text_field :email %>
+    <div class="input-append"><%= f.text_field :email,:class => "span2" %><span class="add-on">@ihaveu.net</span></div>
   </div>
   <div class="actions">
     <%= f.submit "创建用户", :class => "btn"%>

@@ -29,14 +29,12 @@ class Auction::Trade < IhaveuRecord
     year = 2013
     results = self.find_success_trade_users(year)
     #给所有人发送邮件
-    User.all.each do|user|
-      #出现错误抛出异常
-      begin
-        Notifier.send_info_mail(user,results).deliver
-      rescue Exception => e
-        puts e.message
-      end
-    end if User.all.present? && results.present?
+    #出现错误抛出异常
+    begin
+      Notifier.send_info_mail(User.all,results).deliver if User.all.present? && results.present?
+    rescue Exception => e
+      puts e.message
+    end
   end
 
 end
