@@ -9,6 +9,7 @@
     <th>ID</th>
     <th>姓名</th>
     <th>邮箱</th>
+    <th>角色</th>
     <th></th>
   </tr>
 
@@ -17,6 +18,7 @@
     <td><%= link_to user.id, user_path(user) %></td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
+    <td><%= role_str(user.role) %></td>
     <td style="text-align:right;">
       <%= link_to '修改', edit_user_path(user), :class=> "btn btn-info" %>
       <%= link_to '删除', user, method: :delete, data: { confirm: '确定删除？' }, :class=> "btn btn-danger"%>

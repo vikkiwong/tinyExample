@@ -45,6 +45,6 @@ class SessionsController < ApplicationController
   #
   # ping.wang
   def set_session
-    %w(id email name).each {|i| session[i.to_sym] = @user[i] if @user[i].present? }
+    %w(id email name role).each {|i| session[i.to_sym] = @user[i] if @user[i].present? }
   end
 end

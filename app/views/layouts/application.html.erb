@@ -23,8 +23,10 @@
                   <b class="caret" style="border-top-color: #595959;border-bottom-color: #595959;"></b>
                 </a>
                 <ul class="dropdown-menu" style="min-width: 120px;">
-                  <li><a href="/users">用户列表</a></li>
-                  <li class="divider"></li>
+                  <% if can?(:read, User) %>
+                    <li><a href="/users">用户列表</a></li>
+                    <li class="divider"></li>
+                  <% end %>
                   <li><a href="/logout">退出</a></li>
                 </ul>
               </li>

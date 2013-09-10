@@ -1,4 +1,7 @@
+#encoding: utf-8
 class UsersController < ApplicationController
+  load_and_authorize_resource  :class => "User"
+
   # GET /users
   # GET /users.json
   def index
@@ -44,7 +47,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: '成功创建用户' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: '成功修改资料' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -48,5 +48,5 @@ ihaveu_development:
   host: 172.20.2.244
   database: data_ihaveu_com_development
   pool: 5
-  username:
-  password:
+  username: USER_NAME
+  password: PASSWORD

@@ -1,6 +1,25 @@
 #encoding: utf-8
 class User < ActiveRecord::Base
-  attr_accessible :id, :name, :email
+  attr_accessible :id, :name, :email, :role
+  cattr_accessor :current_user
+
+  ROLES = [
+    ['普通用户', 'member'],
+    ['管理员', 'manager']
+  ]
+
+  #判断用户是否是role角色
+  # == params ===
+  # role(String):: 角色名
+  #
+  # == return ===
+  # true/false
+  #
+  # zhanghong
+  # 2012-07-11
+  def is?(role)
+    self.role == role.to_s
+  end
 
   private
   # 查找用户表中是否有目标用户，并验证公司邮箱密码
@@ -12,7 +31,7 @@ class User < ActiveRecord::Base
   # ping.wang  2013.08.23
   def self.check_user(email, password)
     return nil if !email
-    user = where(:name => email).first
+    user = where(:email => email).first
     user && sign_up(email, password) ? user : nil
   end
 

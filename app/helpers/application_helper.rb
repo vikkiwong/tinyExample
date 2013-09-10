@@ -16,4 +16,10 @@ module ApplicationHelper
       ""
     end
   end
+
+
+  def role_str(role)
+    str = User::ROLES.find{ |i| i.last == role }
+    str.present? ? str.first : ""
+  end
 end
